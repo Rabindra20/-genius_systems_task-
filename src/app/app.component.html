@@ -1,0 +1,33 @@
+<div class="col-md-6">
+  <input type="text" [(ngModel)]="searchText" (ngModelChange)="filter(searchText)" class="form-control"
+    placeholder="Search By Category" />
+</div>
+
+<div>
+  <table border="1">
+    <tr>
+      <th class="pointer" (click)="sort('ID')">ID</th>
+      <th class="pointer" (click)="sort('first_name')">Full name</th>
+      <th class="pointer" (click)="sort('username')">Username</th>
+      <th class="pointer" (click)="sort('email')">Email</th>
+      <th class="pointer" (click)="sort('active')">Active</th>
+      <th class="pointer" (click)="sort('address')">Address</th>
+      <th class="pointer" (click)="sort('country')">Country</th>
+      <th class="pointer" (click)="sort('join_date')">Join Date</th>
+      <th class="pointer">Subscription Detail</th>
+    </tr>
+    <tr *ngFor="let item of records">
+      <td>{{item.id}}</td>
+      <td>{{item.first_name}}{{item.middle_name}}{{item.last_name}}</td>
+      <td>{{item.username}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.active == 1 ? 'Active' : 'In-Active'}}</td>
+      <td>{{item.address}}</td>
+      <td>{{item.country}}</td>
+      <td>{{item.join_date}}</td>
+      <td>
+        <button (click)="viewSubscription(item.id)">View Subscription</button>
+      </td>
+    </tr>
+  </table>
+</div>
